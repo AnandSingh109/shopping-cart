@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `shopping-cart`.`user` (
   `address` VARCHAR(250) NULL DEFAULT NULL,
   `pincode` INT NULL DEFAULT NULL,
   `password` VARCHAR(20) NULL DEFAULT NULL,
+  `type` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`email`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -146,8 +147,8 @@ CREATE TABLE IF NOT EXISTS `shopping-cart`.`usercart` (
   CONSTRAINT `prodidcart`
     FOREIGN KEY (`prodid`)
     REFERENCES `shopping-cart`.`product` (`pid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
